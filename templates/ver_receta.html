@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalles de Receta</title>
+</head>
+<body>
+    <h1>Detalles de Receta</h1>
+    <h2>{{ receta.nombre }}</h2>
+    <p>Ingredientes: {{ receta.ingredientes | join(', ') }}</p>
+    <p>Pasos: {{ receta.pasos | join('. ') }}</p>
+
+    <a href="/recetas">Regresar al listado de recetas</a>
+</body>
+</html>

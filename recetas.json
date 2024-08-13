@@ -1,0 +1,14 @@
+[
+    {
+        "id": "1",
+        "nombre": "Arroz",
+        "ingredientes": [
+            "1 taza de arroz blanco 2 tazas de agua 1 cucharadita de sal 1 cucharada de aceite vegetal"
+        ],
+        "pasos": [
+            "Busca una olla mediana en buen estado para hacer el arroz",
+            "Agrega el arroz blanco, las 2 tazas de agua, la sal y el aceite vegetal, todo de una vez",
+            "Revuelve un poco s\u00f3lo en una oportunidad y ya."
+        ]
+    }
+]

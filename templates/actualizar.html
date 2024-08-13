@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Actualizar Receta</title>
+</head>
+<body>
+    <h1>Actualizar Receta</h1>
+    {% if receta %}
+    <form action="{{ url_for('actualizar_receta', id_receta=receta.id) }}" method="POST">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" value="{{ receta.nombre }}" required><br>
+        <label for="ingredientes">Ingredientes (separados por coma):</label>
+        <input type="text" id="ingredientes" name="ingredientes" value="{{ ', '.join(receta.ingredientes) }}" required><br>
+        <label for="pasos">Pasos (separados por punto):</label>
+        <textarea id="pasos" name="pasos" required>{{ '. '.join(receta.pasos) }}</textarea><br>
+        <button type="submit">Actualizar</button>
+    </form>
+    {% else %}
+    <p>Receta no encontrada.</p>
+    {% endif %}
+</body>
+</html>
+
+
+

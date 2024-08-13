@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Listado de Recetas</title>
+</head>
+<body>
+    <h1>Listado de Recetas</h1>
+    <ul>
+        {% for receta in recetas %}
+        <li>
+            <a href="{{ url_for('ver_receta', id_receta=receta['id']) }}">{{ receta['nombre'] }}</a>
+            <form action="{{ url_for('eliminar_receta', id_receta=receta['id']) }}" method="POST" style="display:inline;">
+                <button type="submit">Eliminar</button>
+            </form>
+        </li>
+        {% endfor %}
+    </ul>
+    <a href="{{ url_for('agregar_receta') }}">Agregar nueva receta</a>
+</body>
+</html>
+
+
+
+
+

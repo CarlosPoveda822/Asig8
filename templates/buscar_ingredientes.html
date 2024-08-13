@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Buscar Recetas por Ingredientes</title>
+</head>
+<body>
+    <h1>Buscar Recetas por Ingredientes</h1>
+    <form method="GET" action="{{ url_for('buscar_ingredientes') }}">
+        <label for="ingredientes">Ingredientes (separados por comas):</label><br>
+        <input type="text" id="ingredientes" name="ingredientes" required><br><br>
+        <button type="submit">Buscar Recetas</button>
+    </form>
+
+    {% if recetas %}
+    <h2>Recetas encontradas:</h2>
+    <ul>
+        {% for receta in recetas %}
+        <li>
+            <h3><a href="{{ url_for('ver_receta', id_receta=receta.id) }}">{{ receta.nombre }}</a></h3>
+            <p>Ingredientes: {{ receta.ingredientes | join(', ') }}</p>
+            <p>Pasos: {{ receta.pasos | join('. ') }}</p>
+        </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+    <a href="/">Regresar a la página principal</a>
+</body>
+</html>
+

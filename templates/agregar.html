@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Agregar Receta</title>
+</head>
+<body>
+    <h1>Agregar nueva receta</h1>
+    <form method="POST" action="/agregar">
+        <label for="nombre">Nombre de la receta:</label><br>
+        <input type="text" id="nombre" name="nombre" required><br><br>
+        
+        <label for="ingredientes">Ingredientes (separados por comas):</label><br>
+        <input type="text" id="ingredientes" name="ingredientes" required><br><br>
+        
+        <label for="pasos">Pasos de la receta (separados por puntos):</label><br>
+        <input type="text" id="pasos" name="pasos" required><br><br>
+        
+        <button type="submit">Agregar Receta</button>
+    </form>
+    <br>
+    <a href="/recetas">Ver listado de recetas</a>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Menú</title>
+</head>
+<body>
+    <h1>Menú</h1>
+    <ul>
+        <li><a href="/listado">Ver listado de recetas</a></li>
+        <li><a href="/buscar/ingredientes?ingredientes=INGREDIENTE">Buscar recetas por ingredientes</a></li>
+        <li><a href="/buscar/pasos?pasos=PASO">Buscar recetas por pasos</a></li>
+    </ul>
+    <h2>Agregar Nueva Receta</h2>
+    <form id="formAgregarReceta">
+        <label for="nombre">Nombre:</label><br>
+        <input type="text" id="nombre" name="nombre"><br>
+        <label for="ingredientes">Ingredientes:</label><br>
+        <textarea id="ingredientes" name="ingredientes"></textarea><br>
+        <label for="pasos">Pasos:</label><br>
+        <textarea id="pasos" name="pasos"></textarea><br>
+        <button type="submit">Agregar Receta</button>
+    </form>
+
+    <script>
+        document.getElementById('formAgregarReceta').addEventListener('submit', function(event) {
+            event.preventDefault();
+            let formData = {
+                nombre: document.getElementById('nombre').value,
+                ingredientes: document.getElementById('ingredientes').value,
+                pasos: document.getElementById('pasos').value
+            };
+
+            fetch('/agregar', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert(data.mensaje);
+               
+            })
+            .catch(error => {
+                console.error('Error al agregar la receta:', error);
+                alert('Error al agregar la receta. Verifica la consola para más detalles.');
+            });
+        });
+    </script>
+</body>
+</html>
